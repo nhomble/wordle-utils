@@ -1,0 +1,16 @@
+{
+  "name": "wordle-utils",
+  "version": "0.1.0",
+  "description": "utilities for the wordle puzzle game",
+  "main": "./src/index.ts",
+  "author": "nhomble",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-typescript": "^7.16.7",
+    "jest": "^27.5.1"
+  }
+}
