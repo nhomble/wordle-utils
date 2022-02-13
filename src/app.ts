@@ -1,10 +1,7 @@
 import express, { Request, Response, NextFunction } from 'express';
 import { wordleTest, fonts, wordleSolution } from './wordle';
-import GroupMe from 'groupme';
 import { groupCollapsed } from 'console';
 import axios from 'axios';
-const groupmeClient = GroupMe.Stateless;
-
 
 const app = express();
 app.use(express.json());
