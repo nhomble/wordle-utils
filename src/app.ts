@@ -7,7 +7,7 @@ const port = process.env.PORT || 5000;
 ;
 
 
-const getLocationsWithTimezones = (request: Request, response: Response, next: NextFunction) => {
+const routeSolution = (request: Request, response: Response, next: NextFunction) => {
     const data = {
         "solution": wordleSolution()
     }
@@ -15,7 +15,14 @@ const getLocationsWithTimezones = (request: Request, response: Response, next: N
     response.status(200).json(data);
 };
 
-app.get('/wordle/solution', getLocationsWithTimezones);
+const routeMessage = (request: Request, response: Response, next: NextFunction) => {
+    console.log(request.body);
+
+    response.status(200).json({});
+};
+
+app.get('/wordle/solution', routeSolution);
+app.post('/groupme/message', routeMessage);
 
 app.listen(port, () => {
     console.log(`application is running on port ${port}.`);
