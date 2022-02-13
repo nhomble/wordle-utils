@@ -35,7 +35,7 @@ const routeMessage = (request: Request, response: Response, next: NextFunction) 
     const parts = message.split(" ");
 
     if (parts[0] === "/wordle") {
-        const guess = parts[1];
+        const guess = parts[1].toLowerCase();
         const solution = wordleTest(guess);
 
         const output = [fonts.miss, fonts.miss, fonts.miss, fonts.miss, fonts.miss];
