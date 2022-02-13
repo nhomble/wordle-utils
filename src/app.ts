@@ -3,7 +3,8 @@ import { wordleSolution } from './wordle';
 
 
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 5000;
+;
 
 
 const getLocationsWithTimezones = (request: Request, response: Response, next: NextFunction) => {
