@@ -45,7 +45,13 @@ const routeMessage = (request: Request, response: Response, next: NextFunction) 
         for (var i = 0; i < solution.reorder.length; i++) {
             output[solution.reorder[i]] = fonts.reorder;
         }
-        const res = guess + "\n" + output.join("");
+        var res = guess + "\n" + output.join("");
+
+        // because of tyler
+        if(guess.length != 5){
+            res = "Hey " + author + " learn the rules. " + guess + " is not valid";
+        }
+
         chatMessage(res);
         console.log(res);
     }
