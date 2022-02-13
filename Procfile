@@ -1,1 +1,1 @@
-web: npm chat-bot
+web: yarn start

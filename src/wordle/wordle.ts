@@ -20,11 +20,11 @@ export type GuessResult = {
   reorder: number[];
 }
 
-export const testWord = function (guess: string, goal: string = null): GuessResult {
-  if (goal === null) {
+export const testWord = function (guess: string, goal?: string): GuessResult {
+  if (typeof goal === 'undefined') {
     goal = solution();
   }
-  if ( !guess || guess.length > 5) {
+  if (!guess || guess.length > 5) {
     return {
       correct: [],
       reorder: []

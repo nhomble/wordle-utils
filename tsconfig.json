@@ -1,7 +1,15 @@
 {
-    "compilerOptions": {
-      "target": "es5",
-      "module": "commonjs",
-      "sourceMap": true
-    }
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es6",
+    "moduleResolution": "node",                     
+    "noEmitOnError": true,
+    "lib": ["es2017"],                            
+    "strict": false,  
+    "esModuleInterop": true,                 
+    "outDir": "out-tsc",
+    "rootDir": "./"
   }
+  ,
+  "include": ["./src/**/*.ts"]
+}
