@@ -49,7 +49,7 @@ const routeMessage = (request: Request, response: Response, next: NextFunction) 
 
         // because of tyler
         if(guess.length != 5){
-            res = "Hey " + author + " learn the rules. " + guess + " is not valid";
+            res = "Hey " + author + " learn the rules. " + guess + " is not valid!";
         }
 
         chatMessage(res);
