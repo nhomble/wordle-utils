@@ -1,7 +1,12 @@
-import { words } from "./words";
+import { words as ogWords } from "./words";
+import { words as nytWords } from "./nytWords";
 
 const millisInDay = 864e5;
-const today = new Date()
+const today = new Date();
+
+function wordList(): string[] {
+  return nytWords;
+}
 
 function solutionId(date: Date): number {
   const start = new Date(2021, 5, 19, 0, 0, 0, 0);
@@ -11,6 +16,7 @@ function solutionId(date: Date): number {
 
 export const solution = function (date: Date = today): string {
   const id = solutionId(date);
+  const words = wordList();
   const idx = id % words.length;
   return words[idx];
 };
@@ -18,16 +24,16 @@ export const solution = function (date: Date = today): string {
 export type GuessResult = {
   correct: number[];
   reorder: number[];
-}
+};
 
 export const testWord = function (guess: string, goal?: string): GuessResult {
-  if (typeof goal === 'undefined') {
+  if (typeof goal === "undefined") {
     goal = solution();
   }
   if (!guess || guess.length > 5) {
     return {
       correct: [],
-      reorder: []
+      reorder: [],
     };
   }
 
@@ -59,6 +65,6 @@ export const testWord = function (guess: string, goal?: string): GuessResult {
 
   return {
     correct: correct,
-    reorder: reorder
-  }
+    reorder: reorder,
+  };
 };
