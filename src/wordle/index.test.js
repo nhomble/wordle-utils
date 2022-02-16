@@ -1,5 +1,5 @@
 import { it } from "@jest/globals";
-import { wordleTest, wordleSolution } from "./index";
+import { wordleTest, wordleSolution, isValidGuess } from "./index";
 
 describe("2/8/22 game", () => {
   // elder
@@ -32,6 +32,13 @@ describe("2/8/22 game", () => {
     const out = wordleTest("lllll", goal);
     expect(out.correct).toEqual([1]);
     expect(out.reorder).toEqual([0]);
+  });
+
+  it("the solution must be a valid guess", () => {
+    expect(isValidGuess(goal)).toBeTruthy();
+  });
+  it("12345 cannot be a valid guess", () => {
+    expect(isValidGuess("12345")).toBeFalsy();
   });
 });
 
