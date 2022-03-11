@@ -22,9 +22,9 @@ const routeSolution = (
   response.status(200).json(data);
 };
 
-const chatMessage = function (message: string) {
+const chatMessage = (message: string) => {
   const res = axios.post(
-    "hhttps://api.groupme.com/v3/bots/post",
+    "https://api.groupme.com/v3/bots/post",
     { text: message, bot_id: groupmeBot },
     {
       headers: {
