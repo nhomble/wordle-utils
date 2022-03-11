@@ -42,20 +42,19 @@ const routeMessage = (
   response: Response,
   next: NextFunction
 ) => {
-  const message = request.body.text;
-  const author = request.body.name;
-  const parts = message.split(" ");
+  const { text: message, name: author } = request.body;
+  const [command, maybeGuess = ''] = message.split(" ")
 
-  if (parts[0] === "/wordle") {
-    const guess = parts[1].toLowerCase();
-    const solution = wordleTest(guess);
+  if (command === "/wordle" && maybeGuess) {
+    const guess = maybeGuess.toLowerCase();
+    const { correct, reorder } = wordleTest(guess);
 
     const output = [fonts.miss, fonts.miss, fonts.miss, fonts.miss, fonts.miss];
-    for (var i = 0; i < solution.correct.length; i++) {
-      output[solution.correct[i]] = fonts.correct;
+    for (var i = 0; i < correct.length; i++) {
+      output[correct[i]] = fonts.correct;
     }
-    for (var i = 0; i < solution.reorder.length; i++) {
-      output[solution.reorder[i]] = fonts.reorder;
+    for (var i = 0; i < reorder.length; i++) {
+      output[reorder[i]] = fonts.reorder;
     }
     var res = guess + "\n" + output.join("");
 
