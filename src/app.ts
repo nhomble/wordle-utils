@@ -43,18 +43,18 @@ const routeMessage = (
   next: NextFunction
 ) => {
   const { text: message, name: author } = request.body;
-  const [command, maybeGuess = ''] = message.split(" ")
+  const [command, maybeGuess = ""] = message.split(" ");
 
   if (command === "/wordle" && maybeGuess) {
     const guess = maybeGuess.toLowerCase();
     const { correct, reorder } = wordleTest(guess);
 
     const output = [fonts.miss, fonts.miss, fonts.miss, fonts.miss, fonts.miss];
-    for (var i = 0; i < correct.length; i++) {
-      output[correct[i]] = fonts.correct;
+    for (const c of correct) {
+      output[c] = fonts.correct;
     }
-    for (var i = 0; i < reorder.length; i++) {
-      output[reorder[i]] = fonts.reorder;
+    for (const reordered of reorder) {
+      output[reordered] = fonts.reorder;
     }
     var res = guess + "\n" + output.join("");
 
