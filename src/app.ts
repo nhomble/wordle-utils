@@ -56,7 +56,7 @@ const routeMessage = (
     for (const reordered of reorder) {
       output[reordered] = fonts.reorder;
     }
-    var res = guess + "\n" + output.join("");
+    var res = `${guess}\n${output.join('')}`;
 
     // because of tyler
     if (!isValidGuess(guess)) {
